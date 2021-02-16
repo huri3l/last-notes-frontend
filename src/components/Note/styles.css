@@ -1,0 +1,57 @@
+.note {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+
+  width: 280px;
+  height: 280px;
+  padding: 15px;
+
+  background: var(--note-background);
+}
+
+.note hr {
+  align-self: center;
+  width: 80%;
+  border-bottom: none;
+
+  margin: 10px;
+}
+
+.note .title {
+  font-weight: 700;
+  width: 100%;
+
+  overflow-x: scroll;
+  overflow-y: hidden;
+  white-space: nowrap;
+}
+
+.note .note-description {
+  width: 100%;
+  height: 100%;
+
+  overflow-x: hidden;
+  overflow-y: scroll;
+  text-overflow: ellipsis;
+}
+
+.note .title::-webkit-scrollbar {
+  display: none;
+}
+
+.note .note-description::-webkit-scrollbar {
+  width: 5px;
+}
+
+.note .note-description::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.note .note-description::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.note .note-description:hover::-webkit-scrollbar-thumb {
+  background: #888;
+}

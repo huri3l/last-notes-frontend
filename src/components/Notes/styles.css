@@ -1,0 +1,7 @@
+.notes {
+  margin: 20px 0 0 20px;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 15px;
+  align-content: flex-start;
+}

@@ -1,0 +1,29 @@
+.cancel,
+.confirm {
+  display: none;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+
+  color: #ffffff;
+}
+
+.actions {
+  display: inline-flex;
+  flex-wrap: wrap;
+  gap: 13px;
+}
+
+.actions > button {
+  cursor: pointer;
+  padding: 2px;
+  background: transparent;
+  border: none;
+}
+
+.actions :not(:first-child) {
+  opacity: 50%;
+  cursor: not-allowed;
+}

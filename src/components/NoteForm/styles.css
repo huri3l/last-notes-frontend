@@ -1,0 +1,57 @@
+.note-menu {
+  display: flex;
+  flex-direction: column;
+
+  width: 400px;
+  min-width: 400px;
+  height: 95vh;
+  min-height: 340px;
+  padding: 20px;
+  background: var(--note-menu);
+}
+
+.note-menu div {
+  display: flex;
+  flex-direction: column;
+}
+
+.note-menu div label {
+  font-weight: 300;
+  font-size: 24px;
+
+  color: white;
+  margin-bottom: 8px;
+}
+
+.note-menu div input {
+  border: 0;
+  height: 40px;
+  
+  margin-bottom: 20px;
+}
+
+.note-menu div textarea {
+  resize: none;
+}
+
+.note-menu div textarea, .note-menu div input{
+  background: var(--note-background);
+  font-size: 16px;
+  padding: 5px;
+}
+
+.note-menu div textarea::-webkit-scrollbar {
+  width: 5px;
+}
+
+.note-menu div textarea::-webkit-scrollbar-track {
+  background: transparent;
+}
+
+.note-menu div textarea::-webkit-scrollbar-thumb {
+  background: transparent;
+}
+
+.note-menu div textarea:hover::-webkit-scrollbar-thumb {
+  background: #888;
+}

@@ -1,0 +1,20 @@
+header {
+  width: 100vw;
+  height: 50px;
+  padding: 0px 20px;
+  background: var(--header-background);
+
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+header .logo {
+  color: #ffffff;
+  font-weight: 300;
+  font-size: 32px;
+}
+
+header .logo span {
+  font-weight: 500;
+}

@@ -1,0 +1,4 @@
+.notes-area {
+  display: flex;
+  justify-content: space-between;
+}
