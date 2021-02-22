@@ -10,7 +10,7 @@
   background: var(--note-menu);
 }
 
-.note-menu div {
+.note-menu div:not(.buttons) {
   display: flex;
   flex-direction: column;
 }
@@ -54,4 +54,27 @@
 
 .note-menu div textarea:hover::-webkit-scrollbar-thumb {
   background: #888;
+}
+
+/* Icons */
+
+.buttons {
+  margin-top: 10px;
+  display: flex;
+  justify-content: flex-end;
+  gap: 10px;
+}
+
+.buttons > button {
+  cursor: pointer;
+  padding: 2px;
+  background: transparent;
+  border: none;
+}
+
+.icon {
+  width: 25px;
+  height: 25px;
+
+  color: #ffffff;
 }
