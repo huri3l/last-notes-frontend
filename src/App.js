@@ -5,20 +5,23 @@ import Notes from "./components/Notes";
 import Actions from "./components/Actions";
 
 import NoteFormProvider from "./context/NoteForm";
+import NoteListProvider from "./context/NoteList";
 
 export default function App() {
   return (
     <NoteFormProvider>
-      <Header>
-        <h1 className="logo">
-          <span>LAST </span>
-          NOTES
-        </h1>
-        <Actions />
-      </Header>
-      <NotesArea>
-        <Notes />
-      </NotesArea>
+      <NoteListProvider>
+        <Header>
+          <h1 className="logo">
+            <span>LAST </span>
+            NOTES
+          </h1>
+          <Actions />
+        </Header>
+        <NotesArea>
+          <Notes />
+        </NotesArea>
+      </NoteListProvider>
     </NoteFormProvider>
   );
 }

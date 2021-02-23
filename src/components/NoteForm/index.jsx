@@ -1,16 +1,36 @@
-import React from "react";
+import React, { useState } from "react";
 import { FaCheck, FaBan } from "react-icons/fa";
 
 import { useNoteForm } from "../../context/NoteForm";
+import { useNoteList } from "../../context/NoteList";
 
 import "./styles.css";
 
 export default function NoteForm() {
   const { visibleForm, setVisibleForm } = useNoteForm();
+  const { noteList, setNoteList } = useNoteList();
+
+  const [title, setTitle] = useState("");
+  const [note, setNote] = useState("");
+
+  function inputTitleHandler(e) {
+    setTitle(e.target.value);
+  }
+
+  function inputNoteHandler(e) {
+    setNote(e.target.value);
+  }
 
   function handleSubmit(e) {
     e.preventDefault(e);
-    console.log("entrou");
+    setNoteList([
+      ...noteList,
+      {
+        id: Math.random() * 100,
+        title,
+        note,
+      },
+    ]);
   }
 
   function handleCancel(e) {
@@ -22,11 +42,19 @@ export default function NoteForm() {
     <form className="note-menu">
       <div>
         <label htmlFor="title">Título</label>
-        <input id="title" type="text" placeholder="Informe um título" />
+        <input
+          value={title}
+          onChange={inputTitleHandler}
+          id="title"
+          type="text"
+          placeholder="Informe um título"
+        />
       </div>
       <div>
         <label htmlFor="note">Nota</label>
         <textarea
+          value={note}
+          onChange={inputNoteHandler}
           id="note"
           type="text"
           rows="10"

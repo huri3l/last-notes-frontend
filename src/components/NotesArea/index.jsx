@@ -5,12 +5,11 @@ import NoteForm from "../NoteForm";
 
 import "./styles.css";
 
-export default function NotesArea(props) {
+export default function NotesArea({children}) {
   const { visibleForm, setVisibleForm } = useNoteForm();
-
   return (
     <article className="notes-area">
-      {props.children}
+      {children}
       {visibleForm && <NoteForm />}
     </article>
   );
