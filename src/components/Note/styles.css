@@ -10,6 +10,10 @@
   background: var(--note-background);
 }
 
+.note.highlight {
+  border: 2px solid var(--dark-gray);
+}
+
 .note hr {
   align-self: center;
   width: 80%;
@@ -19,6 +23,8 @@
 }
 
 .note .title {
+  text-align: center;
+
   font-weight: 700;
   width: 100%;
 

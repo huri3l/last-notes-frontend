@@ -6,20 +6,22 @@ import { useNoteList } from "../../context/NoteList";
 import "./styles.css";
 
 export default function Notes() {
-  // * Configurar o componente Note para aceitar os parâmetros aí
   const { noteList, setNoteList } = useNoteList();
+
+  const [highlight, setHighlight] = useState(false);
 
   return (
     <section className="notes">
-      <Note />
-      <Note />
-      <Note />
-      <Note />
-      <Note />
-      <Note />
-      <Note />
-      <Note />
-      {/* {noteList.map((Note, id) => <Note key={id} />)} */}
+      {noteList.map((note) => (
+        <Note
+          key={note.id}
+          id={note.id}
+          title={note.title}
+          description={note.note}
+          highlight={highlight}
+          setHighlight={setHighlight}
+        />
+      ))}
     </section>
   );
 }

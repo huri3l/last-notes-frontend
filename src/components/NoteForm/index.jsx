@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React, { useEffect, useState } from "react";
 import { FaCheck, FaBan } from "react-icons/fa";
 
 import { useNoteForm } from "../../context/NoteForm";
@@ -13,6 +13,14 @@ export default function NoteForm() {
   const [title, setTitle] = useState("");
   const [note, setNote] = useState("");
 
+  useEffect(() => {
+    getLocalNotes();
+  }, []);
+
+  useEffect(() => {
+    saveLocalNotes();
+  }, [noteList]);
+
   function inputTitleHandler(e) {
     setTitle(e.target.value);
   }
@@ -26,11 +34,26 @@ export default function NoteForm() {
     setNoteList([
       ...noteList,
       {
-        id: Math.random() * 100,
+        id: String(Math.random() * 1000),
         title,
         note,
       },
     ]);
+  }
+
+  function saveLocalNotes() {
+    localStorage.setItem("notes", JSON.stringify(noteList));
+  }
+
+  // * terminar
+
+  function getLocalNotes() {
+    let localNotes = localStorage.getItem("notes");
+    if (localNotes === null) localStorage.setItem("notes", JSON.stringify([]));
+    else {
+      localNotes = JSON.parse(localNotes);
+      setNoteList(localNotes);
+    }
   }
 
   function handleCancel(e) {

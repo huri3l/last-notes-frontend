@@ -1,21 +1,21 @@
-import React from "react";
+import React, { useState, useEffect } from "react";
 
 import "./styles.css";
 
-export default function Note() {
+export default function Note({ id, title, description, highlight, setHighlight }) {
+  function highlightNote() {
+    setHighlight(id);
+  }
+
   return (
-    <div className="note">
-      <h2 className="title">TítuloTítuloTítuloTítuloTítuloTítuloTítulo</h2>
+    <div
+      id={id}
+      onClick={() => setHighlight(id)}
+      className={`note${highlight === id ? " highlight" : ""}`}
+    >
+      <h2 className="title">{title}</h2>
       <hr />
-      <p className="note-description">
-        Descrição da notaDescrição da notaDescrição da notaDescrição da
-        notaDescrição da notaDescrição da notaDescrição da notaDescrição da
-        notaDescrição da notaDescrição da notaDescrição da notaDescrição da
-        notaDescrição da notaDescrição da notaDescrição da notaDescrição da
-        notaDescrição da notaDescrição da notaDescrição da notaDescrição da
-        notaDescrição da notaDescrição da notaDescrição da notaDescrição da
-        notaDescrição da notaDescrição da notaDescrição da nota
-      </p>
+      <p className="note-description">{description}</p>
     </div>
   );
 }

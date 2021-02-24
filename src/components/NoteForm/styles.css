@@ -7,7 +7,7 @@
   height: 95vh;
   min-height: 340px;
   padding: 20px;
-  background: var(--note-menu);
+  background: var(--dark-gray);
 }
 
 .note-menu div:not(.buttons) {
