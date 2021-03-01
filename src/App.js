@@ -1,26 +1,27 @@
-import React, { useEffect } from "react";
+import React from "react";
 import Header from "./components/Header";
 import NotesArea from "./components/NotesArea";
 import Notes from "./components/Notes";
 import Actions from "./components/Actions";
+import Logo from "./components/Logo";
 
 import NoteFormProvider from "./context/NoteForm";
-import NoteListProvider, { useNoteList } from "./context/NoteList";
+import NoteListProvider from "./context/NoteList";
+import HighlightProvider from "./context/Highlight";
 
 export default function App() {
   return (
     <NoteFormProvider>
       <NoteListProvider>
-        <Header>
-          <h1 className="logo">
-            <span>LAST </span>
-            NOTES
-          </h1>
-          <Actions />
-        </Header>
-        <NotesArea>
-          <Notes />
-        </NotesArea>
+        <HighlightProvider>
+          <Header>
+            <Logo />
+            <Actions />
+          </Header>
+          <NotesArea>
+            <Notes />
+          </NotesArea>
+        </HighlightProvider>
       </NoteListProvider>
     </NoteFormProvider>
   );

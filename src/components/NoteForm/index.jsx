@@ -7,11 +7,15 @@ import { useNoteList } from "../../context/NoteList";
 import "./styles.css";
 
 export default function NoteForm() {
-  const { visibleForm, setVisibleForm } = useNoteForm();
+  const {
+    visibleForm,
+    setVisibleForm,
+    title,
+    setTitle,
+    note,
+    setNote,
+  } = useNoteForm();
   const { noteList, setNoteList } = useNoteList();
-
-  const [title, setTitle] = useState("");
-  const [note, setNote] = useState("");
 
   useEffect(() => {
     saveLocalNotes();
@@ -30,7 +34,7 @@ export default function NoteForm() {
     setNoteList([
       ...noteList,
       {
-        id: String(Math.random() * 1000),
+        id: String(Math.floor(Math.random() * 1000)),
         title,
         note,
       },

@@ -8,13 +8,3 @@ header {
   justify-content: space-between;
   align-items: center;
 }
-
-header .logo {
-  color: #ffffff;
-  font-weight: 300;
-  font-size: 32px;
-}
-
-header .logo span {
-  font-weight: 500;
-}

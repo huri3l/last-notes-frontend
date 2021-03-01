@@ -18,7 +18,7 @@
   border: none;
 }
 
-.actions :not(:first-child) {
+.actions .disabled {
   opacity: 50%;
   cursor: not-allowed;
 }

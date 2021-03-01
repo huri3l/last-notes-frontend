@@ -1,11 +1,11 @@
 import React, { useState, useEffect } from "react";
+import { useHighlight } from "../../context/Highlight";
+import { useNoteForm } from "../../context/NoteForm";
 
 import "./styles.css";
 
-export default function Note({ id, title, description, highlight, setHighlight }) {
-  function highlightNote() {
-    setHighlight(id);
-  }
+export default function Note({ id, title, description }) {
+  const { highlight, setHighlight } = useHighlight();
 
   return (
     <div
