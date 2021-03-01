@@ -1,11 +1,11 @@
-import React, { useState } from "react";
+import React, { useEffect } from "react";
 import Header from "./components/Header";
 import NotesArea from "./components/NotesArea";
 import Notes from "./components/Notes";
 import Actions from "./components/Actions";
 
 import NoteFormProvider from "./context/NoteForm";
-import NoteListProvider from "./context/NoteList";
+import NoteListProvider, { useNoteList } from "./context/NoteList";
 
 export default function App() {
   return (

@@ -14,10 +14,6 @@ export default function NoteForm() {
   const [note, setNote] = useState("");
 
   useEffect(() => {
-    getLocalNotes();
-  }, []);
-
-  useEffect(() => {
     saveLocalNotes();
   }, [noteList]);
 
@@ -43,17 +39,6 @@ export default function NoteForm() {
 
   function saveLocalNotes() {
     localStorage.setItem("notes", JSON.stringify(noteList));
-  }
-
-  // * terminar
-
-  function getLocalNotes() {
-    let localNotes = localStorage.getItem("notes");
-    if (localNotes === null) localStorage.setItem("notes", JSON.stringify([]));
-    else {
-      localNotes = JSON.parse(localNotes);
-      setNoteList(localNotes);
-    }
   }
 
   function handleCancel(e) {
