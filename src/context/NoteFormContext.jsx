@@ -6,7 +6,7 @@ export default function NoteFormProvider({ children }) {
   const [visibleForm, setVisibleForm] = useState(false);
 
   const [title, setTitle] = useState("");
-  const [note, setNote] = useState("");
+  const [description, setDescription] = useState("");
 
   return (
     <NoteFormContext.Provider
@@ -15,8 +15,8 @@ export default function NoteFormProvider({ children }) {
         setVisibleForm,
         title,
         setTitle,
-        note,
-        setNote,
+        description,
+        setDescription,
       }}
     >
       {children}
@@ -31,8 +31,15 @@ export function useNoteForm() {
     setVisibleForm,
     title,
     setTitle,
-    note,
-    setNote,
+    description,
+    setDescription,
   } = context;
-  return { visibleForm, setVisibleForm, title, setTitle, note, setNote };
+  return {
+    visibleForm,
+    setVisibleForm,
+    title,
+    setTitle,
+    description,
+    setDescription,
+  };
 }

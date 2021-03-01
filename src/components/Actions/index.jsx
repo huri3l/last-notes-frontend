@@ -1,9 +1,9 @@
 import React from "react";
 import { FaPlus, FaPencilAlt, FaTrash } from "react-icons/fa";
-import { useHighlight } from "../../context/Highlight";
+import { useHighlight } from "../../context/HighlightContext";
 
-import { useNoteForm } from "../../context/NoteForm";
-import { useNoteList } from "../../context/NoteList";
+import { useNoteForm } from "../../context/NoteFormContext";
+import { useNoteList } from "../../context/NoteListContext";
 
 import "./styles.css";
 
@@ -11,10 +11,8 @@ export default function Actions() {
   const {
     visibleForm,
     setVisibleForm,
-    title,
     setTitle,
-    note,
-    setNote,
+    setDescription,
   } = useNoteForm();
   const { highlight, setHighlight } = useHighlight();
   const { noteList, setNoteList } = useNoteList();
@@ -27,7 +25,7 @@ export default function Actions() {
     const highlightNote = noteList.find((note) => note.id === highlight);
 
     setTitle(highlightNote.title);
-    setNote(highlightNote.note);
+    setDescription(highlightNote.description);
     setVisibleForm(!visibleForm);
   }
 

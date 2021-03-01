@@ -1,12 +1,12 @@
 import React from "react";
 
-import { useNoteForm } from "../../context/NoteForm";
+import { useNoteForm } from "../../context/NoteFormContext";
 import NoteForm from "../NoteForm";
 
 import "./styles.css";
 
-export default function NotesArea({children}) {
-  const { visibleForm, setVisibleForm } = useNoteForm();
+export default function NotesArea({ children }) {
+  const { visibleForm } = useNoteForm();
   return (
     <article className="notes-area">
       {children}

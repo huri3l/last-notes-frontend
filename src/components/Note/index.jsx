@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from "react";
-import { useHighlight } from "../../context/Highlight";
-import { useNoteForm } from "../../context/NoteForm";
+import { useHighlight } from "../../context/HighlightContext";
+import { useNoteForm } from "../../context/NoteFormContext";
 
 import "./styles.css";
 

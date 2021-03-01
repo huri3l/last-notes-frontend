@@ -1,16 +1,16 @@
 import React, { useState, useEffect } from "react";
 import Note from "../Note";
 
-import { useNoteList } from "../../context/NoteList";
-import { useHighlight } from "../../context/Highlight";
+import { useNoteList } from "../../context/NoteListContext";
+import { useNoteForm } from "../../context/NoteFormContext";
+import { useHighlight } from "../../context/HighlightContext";
 
 import "./styles.css";
-import { useNoteForm } from "../../context/NoteForm";
 
 export default function Notes() {
   const { noteList, setNoteList } = useNoteList();
   const { highlight, setHighlight } = useHighlight();
-  const { setTitle, setNote } = useNoteForm();
+  const { setTitle, setDescription } = useNoteForm();
 
   useEffect(() => {
     getLocalNotes();
@@ -21,7 +21,7 @@ export default function Notes() {
       const higlightNote = noteList.find((note) => note.id === highlight);
 
       setTitle(higlightNote.title);
-      setNote(higlightNote.note);
+      setDescription(higlightNote.description);
     }
   }, [highlight]);
 
@@ -41,7 +41,7 @@ export default function Notes() {
           key={note.id}
           id={note.id}
           title={note.title}
-          description={note.note}
+          description={note.description}
           highlight={highlight}
           setHighlight={setHighlight}
         />

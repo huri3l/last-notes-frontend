@@ -5,9 +5,9 @@ import Notes from "./components/Notes";
 import Actions from "./components/Actions";
 import Logo from "./components/Logo";
 
-import NoteFormProvider from "./context/NoteForm";
-import NoteListProvider from "./context/NoteList";
-import HighlightProvider from "./context/Highlight";
+import NoteFormProvider from "./context/NoteFormContext";
+import NoteListProvider from "./context/NoteListContext";
+import HighlightProvider from "./context/HighlightContext";
 
 export default function App() {
   return (

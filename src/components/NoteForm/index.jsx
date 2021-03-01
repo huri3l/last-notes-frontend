@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { FaCheck, FaBan } from "react-icons/fa";
 
-import { useNoteForm } from "../../context/NoteForm";
-import { useNoteList } from "../../context/NoteList";
+import { useNoteForm } from "../../context/NoteFormContext";
+import { useNoteList } from "../../context/NoteListContext";
 
 import "./styles.css";
 
@@ -12,8 +12,8 @@ export default function NoteForm() {
     setVisibleForm,
     title,
     setTitle,
-    note,
-    setNote,
+    description,
+    setDescription,
   } = useNoteForm();
   const { noteList, setNoteList } = useNoteList();
 
@@ -26,7 +26,7 @@ export default function NoteForm() {
   }
 
   function inputNoteHandler(e) {
-    setNote(e.target.value);
+    setDescription(e.target.value);
   }
 
   function handleSubmit(e) {
@@ -36,7 +36,7 @@ export default function NoteForm() {
       {
         id: String(Math.floor(Math.random() * 1000)),
         title,
-        note,
+        description,
       },
     ]);
   }
@@ -65,7 +65,7 @@ export default function NoteForm() {
       <div>
         <label htmlFor="note">Nota</label>
         <textarea
-          value={note}
+          value={description}
           onChange={inputNoteHandler}
           id="note"
           type="text"
