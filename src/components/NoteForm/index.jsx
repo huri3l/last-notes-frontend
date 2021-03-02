@@ -34,12 +34,14 @@ export default function NoteForm() {
   function handleSubmit(e) {
     e.preventDefault(e);
     if (highlight) {
-      const foundNote = noteList.find((note) => note.id === highlight);
+      noteList.map((note) => {
+        if (note.id === highlight) {
+          note.title = title;
+          note.description = description;
+        }
+      });
 
-      foundNote.title = title;
-      foundNote.description = description;
-
-      noteList[highlight] = foundNote;
+      setNoteList([...noteList]);
     } else {
       setNoteList([
         ...noteList,

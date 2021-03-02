@@ -29,6 +29,15 @@ export default function Actions() {
     setVisibleForm(!visibleForm);
   }
 
+  function handleDelete() {
+    const highlightNote = noteList.find((note) => note.id === highlight);
+    const highlightNoteIdx = noteList.indexOf(highlightNote);
+    noteList.splice(highlightNoteIdx, 1);
+
+    console.log(noteList);
+    setNoteList([...noteList]);
+  }
+
   return (
     <div className="actions">
       <button className="create" onClick={handleCreate}>
@@ -41,7 +50,10 @@ export default function Actions() {
         />
       </button>
       <button className="delete">
-        <FaTrash className={`icon ${!highlight && "disabled"}`} />
+        <FaTrash
+          className={`icon ${!highlight && "disabled"}`}
+          onClick={handleDelete}
+        />
       </button>
     </div>
   );
