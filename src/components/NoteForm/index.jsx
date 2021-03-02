@@ -1,5 +1,6 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect } from "react";
 import { FaCheck, FaBan } from "react-icons/fa";
+import { useHighlight } from "../../context/HighlightContext";
 
 import { useNoteForm } from "../../context/NoteFormContext";
 import { useNoteList } from "../../context/NoteListContext";
@@ -16,6 +17,7 @@ export default function NoteForm() {
     setDescription,
   } = useNoteForm();
   const { noteList, setNoteList } = useNoteList();
+  const { highlight } = useHighlight();
 
   useEffect(() => {
     saveLocalNotes();
@@ -31,14 +33,23 @@ export default function NoteForm() {
 
   function handleSubmit(e) {
     e.preventDefault(e);
-    setNoteList([
-      ...noteList,
-      {
-        id: String(Math.floor(Math.random() * 1000)),
-        title,
-        description,
-      },
-    ]);
+    if (highlight) {
+      const foundNote = noteList.find((note) => note.id === highlight);
+
+      foundNote.title = title;
+      foundNote.description = description;
+
+      noteList[highlight] = foundNote;
+    } else {
+      setNoteList([
+        ...noteList,
+        {
+          id: String(Math.floor(Math.random() * 1000)),
+          title,
+          description,
+        },
+      ]);
+    }
   }
 
   function saveLocalNotes() {

@@ -18,10 +18,9 @@ export default function Notes() {
 
   useEffect(() => {
     if (highlight) {
-      const higlightNote = noteList.find((note) => note.id === highlight);
-
-      setTitle(higlightNote.title);
-      setDescription(higlightNote.description);
+      const highlightNote = noteList.find((note) => note.id === highlight);
+      setTitle(highlightNote.title);
+      setDescription(highlightNote.description);
     }
   }, [highlight]);
 
