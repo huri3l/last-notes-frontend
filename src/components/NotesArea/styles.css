@@ -5,12 +5,16 @@
 
   .notes-area .note-menu {
     flex: 1;
+    min-height: 340px;
   }
-}
 
-@media(max-width: 595px) {
-  .notes {
+  .notes-area .notes {
     justify-content: center;
+    margin: 0;
+  }
+
+  .notes-area .notes .note {
+    margin: 20px 0 0 20px;
   }
 }
 

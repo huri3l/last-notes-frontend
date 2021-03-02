@@ -26,23 +26,27 @@ export default function Actions() {
   }
 
   function handleEdit() {
-    const highlightNote = noteList.find((note) => note.id === highlight);
+    if (highlight) {
+      const highlightNote = noteList.find((note) => note.id === highlight);
 
-    setTitle(highlightNote.title);
-    setDescription(highlightNote.description);
-    setVisibleForm(!visibleForm);
+      setTitle(highlightNote.title);
+      setDescription(highlightNote.description);
+      setVisibleForm(!visibleForm);
+    }
   }
 
   function handleDelete() {
-    setTitle("");
-    setDescription("");
-    setHighlight(false);
+    if (highlight) {
+      setTitle("");
+      setDescription("");
+      setHighlight(false);
 
-    const highlightNote = noteList.find((note) => note.id === highlight);
-    const highlightNoteIdx = noteList.indexOf(highlightNote);
-    noteList.splice(highlightNoteIdx, 1);
+      const highlightNote = noteList.find((note) => note.id === highlight);
+      const highlightNoteIdx = noteList.indexOf(highlightNote);
+      noteList.splice(highlightNoteIdx, 1);
 
-    setNoteList([...noteList]);
+      setNoteList([...noteList]);
+    }
   }
 
   return (
