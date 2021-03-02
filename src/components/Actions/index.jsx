@@ -18,7 +18,11 @@ export default function Actions() {
   const { noteList, setNoteList } = useNoteList();
 
   function handleCreate() {
-    setVisibleForm(!visibleForm);
+    if (visibleForm && highlight) {
+      setTitle("");
+      setDescription("");
+      setHighlight(false);
+    } else setVisibleForm(!visibleForm);
   }
 
   function handleEdit() {
@@ -30,11 +34,14 @@ export default function Actions() {
   }
 
   function handleDelete() {
+    setTitle("");
+    setDescription("");
+    setHighlight(false);
+
     const highlightNote = noteList.find((note) => note.id === highlight);
     const highlightNoteIdx = noteList.indexOf(highlightNote);
     noteList.splice(highlightNoteIdx, 1);
 
-    console.log(noteList);
     setNoteList([...noteList]);
   }
 

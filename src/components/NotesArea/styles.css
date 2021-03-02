@@ -1,3 +1,19 @@
+@media(max-width: 720px) {
+  .notes-area {
+    flex-wrap: wrap-reverse;
+  }
+
+  .notes-area .note-menu {
+    flex: 1;
+  }
+}
+
+@media(max-width: 595px) {
+  .notes {
+    justify-content: center;
+  }
+}
+
 .notes-area {
   display: flex;
   justify-content: space-between;

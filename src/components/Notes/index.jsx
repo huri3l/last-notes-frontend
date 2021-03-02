@@ -21,6 +21,9 @@ export default function Notes() {
       const highlightNote = noteList.find((note) => note.id === highlight);
       setTitle(highlightNote.title);
       setDescription(highlightNote.description);
+    } else {
+      setTitle("");
+      setDescription("");
     }
   }, [highlight]);
 

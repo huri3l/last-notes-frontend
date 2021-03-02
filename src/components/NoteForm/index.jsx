@@ -17,7 +17,7 @@ export default function NoteForm() {
     setDescription,
   } = useNoteForm();
   const { noteList, setNoteList } = useNoteList();
-  const { highlight } = useHighlight();
+  const { highlight, setHighlight } = useHighlight();
 
   useEffect(() => {
     saveLocalNotes();
@@ -60,6 +60,7 @@ export default function NoteForm() {
 
   function handleCancel(e) {
     e.preventDefault(e);
+    setHighlight(false);
     setVisibleForm(!visibleForm);
   }
 
