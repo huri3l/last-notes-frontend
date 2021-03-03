@@ -2,6 +2,8 @@
 
 Aplicação para a criação de notas desenvolvida para fins de estudo.
 
+Link: https://last-notes.vercel.app/
+
 ## Tecnologias usadas:
 * React;
 * CSS;
