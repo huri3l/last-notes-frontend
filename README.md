@@ -14,6 +14,7 @@ Link: https://last-notes.vercel.app/
 * Gerenciamento de estados entre vários componentes;
 * Estilização minimalista e responsiva;
 * Entrega de Mínimo Produto Viável;
-* Criação de UI no Figma.
+* Criação de UI no Figma;
+* Armazenamento em localStorage.
 
 ![image](https://user-images.githubusercontent.com/61247833/109732811-9d5a7d80-7b9c-11eb-8fd1-adef6a4bb845.png)
